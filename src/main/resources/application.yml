@@ -1,2 +1,9 @@
 server:
   port: 8884
+hazelcast:
+  clusterName: fcm
+  loggingType: log4j2
+  network:
+    ip: 127.0.0.1
+    port: 5701
+    portAutoIncrement: true

@@ -12,12 +12,13 @@ import javax.annotation.PostConstruct;
  */
 @Component("preRunning")
 public class PostConstructUtil {
+    String selfCode;
+    Integer runningCode;
+
     @PostConstruct
     public void tt() {
-        HazelcastInstance instance = HazelcastClient.newHazelcastClient();
 
-        Config instanceConfig = instance.getConfig();
 
-        System.out.println(instanceConfig.getClass());
+
     }
 }
