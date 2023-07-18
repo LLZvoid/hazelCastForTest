@@ -21,13 +21,16 @@ public class PostConstructUtil {
     private HazelcastInstance hazelcastInstance;
 
     @PostConstruct
-    public void tt() {
+    public void tt() throws InterruptedException {
         this.ttt();
 
         ITopic<Object> firstMsg = hazelcastInstance.getTopic("myFirstMsg");
 
         firstMsg.publish("give me five");
 
+        Thread.sleep(5*1000);
+
+        firstMsg.publish("see you later");
     }
 
     public void ttt() {
@@ -35,6 +38,9 @@ public class PostConstructUtil {
 
         firstMsg.addMessageListener(message -> {
             System.out.println("hi guys");
+
+            Object messageObject = message.getMessageObject();
+            System.out.println(messageObject);
         });
 
     }
